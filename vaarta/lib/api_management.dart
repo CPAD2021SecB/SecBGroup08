@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:firebase_database/firebase_database.dart';
 import 'package:http/http.dart' as http;
 import 'package:vaarta/news_model.dart';
+//import 'package:vaarta/source_news_model.dart';
 import 'package:vaarta/strings.dart';
+import 'package:vaarta/news_source_model.dart';
 
 class API_Management {
 
@@ -40,5 +41,23 @@ try {
 
     return newsmodel;
 
+  }
+  Future<NewsSource> getSources() async {
+    var client = http.Client();
+    var sources = null;
+try {
+    var response = await client.get(Uri.parse(Strings.sourceurl));
+    if(response.statusCode == 200){
+      var jsonString = response.body;
+      var jsonMap = json.decode(jsonString);   
+
+      sources = NewsSource.fromJson(jsonMap);
+    }
+
+} on Exception {
+      print(Exception);
+      return sources;
+}
+    return sources;
   }
 }
