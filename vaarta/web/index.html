@@ -16,7 +16,7 @@
   -->
   <base href="$FLUTTER_BASE_HREF">
 
-  <meta name="google-signin-client_id" content="ID">
+  <meta name="google-signin-client_id" content="434349618389-f0dp5c1ifd4elsujii7i69eqna4e3l2d.apps.googleusercontent.com">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -32,6 +32,36 @@
   <link rel="manifest" href="manifest.json">
 </head>
 <body>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-core.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/cloud-functions.js"></script>
+
+
+    <script>
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAaBovDJU9aZosLkcBymBYQ5O2mLghzn-I",
+        authDomain: "vaarta-b66fe.firebaseapp.com",
+        databaseURL: "https://vaarta-b66fe-default-rtdb.firebaseio.com",
+        projectId: "vaarta-b66fe",
+        storageBucket: "vaarta-b66fe.appspot.com",
+        messagingSenderId: "434349618389",
+        appId: "1:434349618389:web:413b21260b20ca6786de5c"
+      };
+    
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
