@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:http/http.dart' as http;
 import 'package:vaarta/news_model.dart';
-//import 'package:vaarta/source_news_model.dart';
+import 'package:vaarta/source_news_model.dart';
 import 'package:vaarta/strings.dart';
 import 'package:vaarta/news_source_model.dart';
 
@@ -59,5 +59,48 @@ try {
       return sources;
 }
     return sources;
+  }
+  Future<SourceNewsModel>? getNewsfromSource(String sourceID) async {
+
+        var client = http.Client();
+
+
+
+    var source_news = null;
+
+
+
+try {
+
+    var response = await client.get(Uri.parse(Strings.sourcenewsurl+sourceID));
+
+
+
+    if(response.statusCode == 200){
+
+      var jsonString = response.body;
+
+      var jsonMap = json.decode(jsonString);
+
+     
+
+      source_news = SourceNewsModel.fromJson(jsonMap);
+
+    }
+
+} on Exception {
+
+      return source_news;
+
+
+
+}
+
+
+
+    return source_news;
+
+   
+
   }
 }
